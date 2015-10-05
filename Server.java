@@ -13,12 +13,14 @@ public class Server {
         Socket serverSocket = new ServerSocket(22222).accept();
 
         //Create a Byte Array
-        byte[] msg = extractBytes("test2.png");
+        byte[] msg = extractBytes("I79o1.jpg");
         //Create a DataOutputStream wich ill exchange data with the Client
-        DataOutputStream dOut = new DataOutputStream(serverSocket.getOutputStream());
-        //Then write the message to the Client
-        dOut.writeInt(msg.length);
-        dOut.write(msg);
+        while(true){
+          DataOutputStream dOut = new DataOutputStream(serverSocket.getOutputStream());
+          //Then write the message to the Client
+          dOut.writeInt(msg.length);
+          dOut.write(msg);
+        }
     }
 
     //function wich will create a byte array from a image
